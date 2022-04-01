@@ -13,6 +13,7 @@ Host=${NETSUITE_ACCOUNT_ID}.connect.api.netsuite.com
 Port=1708
 ServerDataSource=NetSuite.com
 Encrypted=1
+AllowSinglePacketLogout=1
 Truststore=${HOME}/.apt/usr/lib/netsuite/odbc/bin/cert/ca3.cer
 CustomProperties=AccountID=${NETSUITE_ACCOUNT_ID};RoleID=3
 
