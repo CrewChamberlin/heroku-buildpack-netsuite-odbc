@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "snowflake-odbc"
+echo "netsuite-odbc"
 exit 0
