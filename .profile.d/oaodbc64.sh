@@ -17,6 +17,17 @@ AllowSinglePacketLogout=1
 Truststore=${HOME}/.apt/usr/lib/netsuite/odbc/bin/cert/ca3.cer
 CustomProperties=AccountID=${NETSUITE_ACCOUNT_ID};RoleID=3
 
+[NetSuite2]
+Driver=${HOME}/.apt/usr/lib/netsuite/odbc/bin/lib64/ivoa27.so
+Description=Connect to your NetSuite account
+Host=${NETSUITE_ACCOUNT_ID}.connect.api.netsuite.com
+Port=1708
+ServerDataSource=NetSuite2.com
+Encrypted=1
+AllowSinglePacketLogout=1
+Truststore=${HOME}/.apt/usr/lib/netsuite/odbc/bin/cert/ca3.cer
+CustomProperties=AccountID=${NETSUITE_ACCOUNT_ID};RoleID=57
+
 [ODBC]
 Trace=0
 IANAAppCodePage=4
