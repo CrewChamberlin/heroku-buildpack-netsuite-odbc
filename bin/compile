@@ -21,7 +21,7 @@ arrow "Create bin dir"
 mkdir -p "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin" | indent
 
 arrow "Copying ODBC driver from local repository"
-cp NetSuiteODBCDrivers_Linux64bit.zip "${BUILD_DIR}/NetSuiteODBCDrivers_Linux64bit.zip" | indent
+cp NetSuiteODBCDrivers_Linux64bit.zip "${BUILD_DIR}/portal2/netsuiteodbcdrivers_linux64bit.zip/" | indent
 
 arrow "Unzipping ODBC driver"
 unzip "${BUILD_DIR}/netsuite_odbcdrivers_linux64bit/NetSuiteODBCDrivers_Linux64bit.zip" -d "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/" | indent
