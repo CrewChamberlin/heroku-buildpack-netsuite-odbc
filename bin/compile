@@ -9,8 +9,6 @@ indent() {
 }
 
 BUILD_DIR=$1
-#CACHE_DIR=$2
-#ENV_DIR=$3
 
 mkdir -p "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/conf" | indent
 cp odbcinst.ini "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/conf/odbcinst.ini" | indent
@@ -21,12 +19,12 @@ cp .profile.d/oaodbc64.sh "${BUILD_DIR}/.profile.d" | indent
 
 arrow "Create bin dir"
 mkdir -p "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin" | indent
-arrow "Copy zip ${BUILD_DIR}/netsuite_odbcdrivers_linux64bit/NetSuiteODBCDrivers_Linux64bit.zip"
-cp ${BUILD_DIR}/netsuite_odbcdrivers_linux64bit/NetSuiteODBCDrivers_Linux64bit.zip "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin" | indent
-arrow "unzip binary should be in  ${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/NetSuiteODBCDrivers_Linux64bit.zip"
-#unzip "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/NetSuiteODBCDrivers_Linux64bit.zip" | indent
-unzip  ${BUILD_DIR}/netsuite_odbcdrivers_linux64bit/NetSuiteODBCDrivers_Linux64bit.zip -d ${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/| indent
-arrow "ls files 1"
-ls -al ${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/NetSuiteODBCDrivers_Linux64bit.zip | indent
-arrow "ls files 1"
-ls -al ${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/ | indent
+
+arrow "Downloading ODBC driver from ${NS_ODBC_DRIVER}"
+curl -L ${NS_ODBC_DRIVER} -o "${BUILD_DIR}/netsuite_odbcdrivers_linux64bit/NetSuiteODBCDrivers_Linux64bit.zip" | indent
+
+arrow "Unzipping ODBC driver"
+unzip "${BUILD_DIR}/netsuite_odbcdrivers_linux64bit/NetSuiteODBCDrivers_Linux64bit.zip" -d "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/" | indent
+
+arrow "Listing files in bin directory"
+ls -al "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/bin/" | indent
