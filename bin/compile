@@ -10,6 +10,9 @@ indent() {
 
 BUILD_DIR=$1
 
+# Load environment variables
+source /app/.heroku/python/bin/activate
+
 mkdir -p "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/conf" | indent
 cp odbcinst.ini "${BUILD_DIR}/.apt/usr/lib/netsuite/odbc/conf/odbcinst.ini" | indent
 
